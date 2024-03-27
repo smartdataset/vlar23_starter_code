@@ -110,6 +110,7 @@ def predict_on_challenge_data(args, pretrained_model_path, challenge_phase='val'
     print('writing the model responses to file')
     make_response_json(challenge_loader, responses) # dump the model predicted answers into a json file for evaluation.
     
-    print('done!', flush=True)
-    # NOTE: Do no remove this without this evaluation script will not run.
+    print('Success!! (if this is not a submission to Eval.AI, you may kill the docker run now using Ctrl + C!)', flush=True)
+    # NOTE: Do no remove this without this evaluation script will not run 
+    # This is only for direct docker submission into eval.ai and not for manual evaluation
     time.sleep(320) # sleep for 5 minutes to allow the evaluation script to run.
