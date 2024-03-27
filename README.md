@@ -12,7 +12,7 @@ VLAR-val.json locally, it should run on eval.ai as well. See the instructions be
 
 ## Participation Guidelines
 
-Participate in the contest by registering on the [EvalAI challenge page](https://eval.ai/web/challenges/challenge-page/2088/overview) and creating a team. Participants will upload docker containers with their agents that are evaluated on an AWS GPU-enabled instance. Before pushing the submissions for remote evaluation, participants should test the submission docker locally to ensure it is working. Instructions for training, local evaluation, and online submission are provided below.
+Participate in the contest by registering on the [EvalAI challenge page](https://eval.ai/web/challenges/challenge-page/2088/overview) and creating a team. Participants will upload docker containers with their agents that are evaluated on an AWS GPU-enabled instance. Before pushing the submissions for remote evaluation, participants should test the submission docker locally to ensure it is working. Instructions for training, local evaluation, and online submission are provided below. Note that we ***prohibit internet access*** for the docker runs. Thus, participant submissions need to include all the packages and pre-trained models within the docker image that are needed for executing the submission (see Dockerfile for an example). 
 
 ### Local Evaluation
 
@@ -45,7 +45,7 @@ Participate in the contest by registering on the [EvalAI challenge page](https:/
 1. Evaluate your docker container locally (you may use the provided ./dataset/VLAR-val.json for the local run):
     ```bash
     # Testing on val split
-    docker run -v /path/to/local/copy/of/dataset/:/dataset/ smart_101_submission
+    docker run --network none -v /path/to/local/copy/of/dataset/:/dataset/ smart_101_submission
     ```
     If the above command runs successfully you will get an output similar to:
     ```
